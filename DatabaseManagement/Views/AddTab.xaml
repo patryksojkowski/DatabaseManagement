@@ -1,0 +1,46 @@
+﻿<Grid x:Class="DatabaseManagement.Views.AddTab"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:cust="clr-namespace:DatabaseManagement.Controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      DataContext="{Binding AddTabViewModel, Source={StaticResource Locator}}">
+    <StackPanel>
+        <StackPanel.Resources>
+            <Style TargetType="cust:LabeledTextBox">
+                <Setter Property="LabelWidth" Value="80"/>
+                <Setter Property="ControlHeight" Value="25"/>
+                <Setter Property="TextBoxWidth" Value="140"/>
+                <Setter Property="Margin" Value="20 20 0 0"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="Margin" Value="20 20 0 0"/>
+            </Style>
+            <Style TargetType="DatePicker">
+                <Setter Property="Margin" Value="30 20 0 0"/>
+            </Style>
+            <Style TargetType="ComboBox">
+                <Setter Property="Margin" Value="30 20 0 0"/>
+            </Style>
+        </StackPanel.Resources>
+        <cust:LabeledTextBox LabelText="Name" Text="{Binding Name, Mode=TwoWay}"/>
+        <cust:LabeledTextBox LabelText="Lastname" Text="{Binding Lastname, Mode=TwoWay}"/>
+        <!--cust:LabeledTextBox LabelText="Country" Text="{Binding Country, Mode=TwoWay}"/-->
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Country"/>
+            <ComboBox ItemsSource="{Binding Countries}" SelectedItem="{Binding Country}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="City"/>
+            <ComboBox ItemsSource="{Binding Cities}" SelectedItem="{Binding City}"/>
+        </StackPanel>
+        <!--<cust:LabeledTextBox LabelText="City" Text="{Binding City, Mode=TwoWay}"/>-->
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Birthdate"/>
+            <DatePicker SelectedDate="{Binding Birthdate}"/>
+        </StackPanel>
+        <Button Width="80" Height="20" Content="Add" Margin="100 20" HorizontalAlignment="Left"/>
+    </StackPanel>
+</Grid>
